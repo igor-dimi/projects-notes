@@ -1,0 +1,89 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "projects",
+    "section": "",
+    "text": "Preface\nNotes on various projects",
+    "crumbs": [
+      "Preface"
+    ]
+  },
+  {
+    "objectID": "minipost/intro.html",
+    "href": "minipost/intro.html",
+    "title": "1  MiniPost - Introduction",
+    "section": "",
+    "text": "MiniPost is a minimal full-stack web application designed as a learning project to explore how modern web systems work end-to-end. It features a Single Page Application (SPA) frontend, a GraphQL API backend, secure user authentication using JWTs and bcrypt, and persistent data storage with PostgreSQL. The goal is to gain practical experience with key architectural patterns, tools, and development workflows used in real-world applications — all while maintaining a clean and modular codebase.",
+    "crumbs": [
+      "MiniPost",
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>MiniPost - Introduction</span>"
+    ]
+  },
+  {
+    "objectID": "minipost/overview.html",
+    "href": "minipost/overview.html",
+    "title": "2  Project Overview",
+    "section": "",
+    "text": "MiniPost — A Minimal Blog Platform with Auth and GraphQL",
+    "crumbs": [
+      "MiniPost",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Project Overview</span>"
+    ]
+  },
+  {
+    "objectID": "minipost/overview.html#minipost-a-minimal-blog-platform-with-auth-and-graphql",
+    "href": "minipost/overview.html#minipost-a-minimal-blog-platform-with-auth-and-graphql",
+    "title": "2  Project Overview",
+    "section": "",
+    "text": "Project Origin & Purpose\nThis project builds on your in-depth exploration of web technologies — from HTTP and browser internals to SPAs, GraphQL, and authentication. MiniPost is your chance to tie all of that together in a single, coherent full-stack application.\n\n\nWhat It Will Teach You\n\nSPA structure and frontend routing\nHow GraphQL APIs communicate with clients\nSecure user authentication with hashed passwords and JWTs\nSQL database modeling and persistence\nFull request–response flow from frontend to backend to database\n\n\n\n\nArchitecture Options\n\n\n\n\n\n\n\n\nLayer\nTechnology\nAlternatives / Notes\n\n\n\n\nFrontend\nReact + Vite (or SvelteKit)\nSPA handles routing, forms, and dynamic DOM\n\n\nAPI\nApollo Server (or GraphQL Yoga)\nGraphQL schema + resolvers\n\n\nServer\nNode.js (via Express or Fastify)\nHosts GraphQL endpoint\n\n\nDatabase\nPostgreSQL\nReal SQL schema: users, posts\n\n\nAuth\nJWT (via jsonwebtoken)\nStored in cookie or localStorage\n\n\nPassword\nbcrypt\nSecure password hashing\n\n\nDB Access\npg, Knex.js, or Prisma ORM\nChoose your abstraction level\n\n\n\n\n\n\nCore Functionality (Milestones)\n\n🗂 Stage 1 — Read-Only Blog (Public)\n\nSetup DB with posts table and seed data\nGraphQL schema exposes posts: [Post] query\nFrontend fetches and displays posts\n\n\n\n🔐 Stage 2 — Authentication\n\nusers table in PostgreSQL\nMutations: signup(email, password), login(email, password)\nUse bcrypt for hashing, jsonwebtoken for issuing tokens\nFrontend stores token and uses Authorization: Bearer ...\n\n\n\n✍️ Stage 3 — Authenticated Posting\n\nMutation: createPost(title, body) (auth required)\nJWT middleware to protect mutation\nConditional frontend rendering based on auth state\n\n\n\n🪜 Stage 4 — Polish & Extras (Optional)\n\nAdd timestamps, pagination\nApollo Client caching and local state\nLogout button, post editing/deletion, error messages\n\n\n\n\nDevelopment Stack Suggestions\n\n\n\nTask\nTools\n\n\n\n\nFrontend\nReact + Vite (or SvelteKit)\n\n\nGraphQL API\nApollo Server (or GraphQL Yoga)\n\n\nAuth\nbcrypt, jsonwebtoken\n\n\nDB Integration\npg, Knex.js, or Prisma\n\n\nSQL Database\nPostgreSQL\n\n\nDev Environment\nDocker Compose (optional)",
+    "crumbs": [
+      "MiniPost",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Project Overview</span>"
+    ]
+  },
+  {
+    "objectID": "minipost/plan.html",
+    "href": "minipost/plan.html",
+    "title": "3  Plan",
+    "section": "",
+    "text": "Long-Term Development Phases for MiniPost\nEach phase builds on the previous one, moving from a basic read-only blog to a secure, interactive full-stack app with user management and refinement.",
+    "crumbs": [
+      "MiniPost",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Plan</span>"
+    ]
+  },
+  {
+    "objectID": "minipost/plan.html#long-term-development-phases-for-minipost",
+    "href": "minipost/plan.html#long-term-development-phases-for-minipost",
+    "title": "3  Plan",
+    "section": "",
+    "text": "Phase 1 – Read-Only Blog (Public)\nFocus: Database + Backend + Frontend integration\n\nSet up PostgreSQL with seeded posts\nCreate a minimal GraphQL API with a posts query\nBuild a frontend that queries and displays posts\nNo user accounts, no mutations, no auth\n\nGoal: Get a working end-to-end application with read-only content\n\n\n\nPhase 2 – Authentication System\nFocus: User accounts, secure login, and token management\n\nAdd a users table to the database\nCreate signup and login mutations\nHash passwords with bcrypt\nIssue JWT tokens on login\nFrontend stores the token (e.g., in localStorage)\nAttach token to authenticated requests\n\nGoal: Enable user accounts and secure access to protected features\n\n\n\nPhase 3 – Authenticated Posting\nFocus: User-generated content + authorization\n\nAdd a createPost mutation (requires valid token)\nAssociate posts with author_id\nRestrict post creation to logged-in users\nUpdate frontend with a post form (shown only when logged in)\nValidate and sanitize input\n\nGoal: Allow logged-in users to create and view their posts\n\n\n\nPhase 4 – Polish and Enhancements (Optional but valuable)\nFocus: Refinement, UX improvements, scalability\n\nAdd pagination for posts\nInclude created_at timestamps in schema\nAdd editPost and deletePost mutations (only for author)\nAdd logout button on the frontend\nImprove error handling and form validation\nUse Apollo Client features (e.g., cache, local state)\nPrepare for production deployment (build scripts, Docker Compose prod profile)\n\nGoal: Turn a functional prototype into a more realistic app",
+    "crumbs": [
+      "MiniPost",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Plan</span>"
+    ]
+  },
+  {
+    "objectID": "minipost/plan.html#future-optional-phases",
+    "href": "minipost/plan.html#future-optional-phases",
+    "title": "3  Plan",
+    "section": "Future (Optional) Phases",
+    "text": "Future (Optional) Phases\nIf you’re enjoying the project, you can go further:\n\nPhase 5: User profiles – profile pages, avatars, bios\nPhase 6: Comments system – nested content, moderation\nPhase 7: Admin dashboard – view users/posts, manage content\nPhase 8: Deploy to cloud – e.g., Fly.io, Railway, or Docker VPS\n\n\nLet me know if you’d like this roadmap saved in a markdown block for direct pasting into your Quarto project, or if you want to adjust the scope or add more phases.",
+    "crumbs": [
+      "MiniPost",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Plan</span>"
+    ]
+  },
+  {
+    "objectID": "minipost/plan.html#phase-1-read-only-public-blog-no-auth",
+    "href": "minipost/plan.html#phase-1-read-only-public-blog-no-auth",
+    "title": "3  Plan",
+    "section": "Phase 1 – Read-Only Public Blog (No Auth)",
+    "text": "Phase 1 – Read-Only Public Blog (No Auth)\nThis phase builds confidence and sets a foundation by developing a minimal working app without authentication.\n\nStep 1: Set up PostgreSQL with Docker (database only)\n\nRun a local PostgreSQL container using Docker\nCreate a minipost database\nDefine a posts table\nInsert seed data manually or using an SQL script\n\nAt this stage, no backend or frontend is needed — just ensure the database runs correctly.\n\n\nStep 2: Build the backend API (GraphQL)\n\nScaffold a basic Node.js backend\n\nUse apollo-server-express or graphql-yoga\nConnect to PostgreSQL via pg, Knex, or Prisma\n\nDefine a Post type and a posts: [Post] query\nImplement a resolver that fetches data from the database\n\nThis teaches how the backend communicates with the database and exposes a GraphQL endpoint.\n\n\nStep 3: Create the frontend SPA\n\nUse React + Vite or SvelteKit\nAdd Apollo Client to consume the GraphQL API\nQuery and display blog posts\n\nAt this point, you will have a minimal but complete full-stack app (still without auth).\n\n\n\nTooling Overview (Phase 1)\n\n\n\nComponent\nToolset\n\n\n\n\nDatabase\nPostgreSQL (Docker container)\n\n\nBackend\nNode.js + GraphQL (Apollo Server or Yoga) + pg/ORM\n\n\nFrontend\nReact + Vite or SvelteKit\n\n\nAPI URL\nhttp://localhost:4000/graphql\n\n\n\n\n\n\nStarter Template Option\nI can generate a minimal project scaffold with this structure:\nminipost/\n├── backend/\n│   ├── index.js\n│   ├── schema.js\n│   └── package.json\n├── frontend/\n│   └── (React/Vite app)\n├── docker-compose.yml\n└── README.md\nIf you prefer, we can focus only on the backend and database setup first.\n\n\n\nWhat Comes After Phase 1\nOnce the read-only blog is working, the next steps will be:\n\nAdd a users table\nImplement signup and login mutations\nUse bcrypt for password hashing and issue JWTs\nProtect the createPost mutation and add it to the frontend UI\n\n\n\n\nNext Step: Choose Your Starting Point\nPlease pick one of the following:\n\nSet up PostgreSQL in Docker (Phase 1, Step 1)\nScaffold the backend API with GraphQL (Phase 1, Step 2)\nGenerate the full starter template with folder structure and Compose file\nSomething else — you can modify or reorder the plan\n\nLet me know, and I’ll guide you through the selected step.",
+    "crumbs": [
+      "MiniPost",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Plan</span>"
+    ]
+  }
+]
