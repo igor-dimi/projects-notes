@@ -1,0 +1,75 @@
+---
+title: Project Overview
+---
+
+## MiniPost — A Minimal Blog Platform with Auth and GraphQL
+
+### Project Origin & Purpose
+
+This project builds on your in-depth exploration of web technologies — from HTTP and browser internals to SPAs, GraphQL, and authentication. **MiniPost** is your chance to tie all of that together in a single, coherent full-stack application.
+
+
+### What It Will Teach You
+
+* SPA structure and frontend routing
+* How GraphQL APIs communicate with clients
+* Secure user authentication with hashed passwords and JWTs
+* SQL database modeling and persistence
+* Full request–response flow from frontend to backend to database
+
+---
+
+### Architecture Options
+
+| Layer         | Technology                         | Alternatives / Notes                        |
+| ------------- | ---------------------------------- | ------------------------------------------- |
+| **Frontend**  | React + Vite *(or SvelteKit)*      | SPA handles routing, forms, and dynamic DOM |
+| **API**       | Apollo Server *(or GraphQL Yoga)*  | GraphQL schema + resolvers                  |
+| **Server**    | Node.js *(via Express or Fastify)* | Hosts GraphQL endpoint                      |
+| **Database**  | PostgreSQL                         | Real SQL schema: `users`, `posts`           |
+| **Auth**      | JWT (via `jsonwebtoken`)           | Stored in cookie or `localStorage`          |
+| **Password**  | `bcrypt`                           | Secure password hashing                     |
+| **DB Access** | `pg`, Knex.js, or Prisma ORM       | Choose your abstraction level               |
+
+---
+
+### Core Functionality (Milestones)
+
+#### 🗂 Stage 1 — Read-Only Blog (Public)
+
+* Setup DB with `posts` table and seed data
+* GraphQL schema exposes `posts: [Post]` query
+* Frontend fetches and displays posts
+
+#### 🔐 Stage 2 — Authentication
+
+* `users` table in PostgreSQL
+* Mutations: `signup(email, password)`, `login(email, password)`
+* Use `bcrypt` for hashing, `jsonwebtoken` for issuing tokens
+* Frontend stores token and uses `Authorization: Bearer ...`
+
+#### ✍️ Stage 3 — Authenticated Posting
+
+* Mutation: `createPost(title, body)` (auth required)
+* JWT middleware to protect mutation
+* Conditional frontend rendering based on auth state
+
+#### 🪜 Stage 4 — Polish & Extras (Optional)
+
+* Add timestamps, pagination
+* Apollo Client caching and local state
+* Logout button, post editing/deletion, error messages
+
+
+### Development Stack Suggestions
+
+| Task            | Tools                             |
+| --------------- | --------------------------------- |
+| Frontend        | React + Vite *(or SvelteKit)*     |
+| GraphQL API     | Apollo Server *(or GraphQL Yoga)* |
+| Auth            | `bcrypt`, `jsonwebtoken`          |
+| DB Integration  | `pg`, Knex.js, or Prisma          |
+| SQL Database    | PostgreSQL                        |
+| Dev Environment | Docker Compose *(optional)*       |
+
+---
